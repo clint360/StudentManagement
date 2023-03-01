@@ -1,10 +1,18 @@
-
+import SideBar from "./SideBar/SideBar";
+import Dashboard from "./View/Dashboard/Dashboard";
 
 function App() {
 
   return (
 <div>
-  Hey Sir
+  <div className="face">
+  <div>
+    <SideBar />
+    </div>
+  <div>
+    <Dashboard />
+  </div>
+  </div>
 </div>
   );
 }
