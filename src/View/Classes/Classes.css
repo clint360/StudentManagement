@@ -1,0 +1,88 @@
+.classtable {
+  padding-top: 10px;
+}
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 20px;
+}
+
+.toolbar button{
+ font-size: 20px;
+ padding: 2px 10px;
+ cursor: pointer;
+ color: white;
+ background: blue;
+}
+
+.toolbar button:hover {
+  background: rgb(9, 9, 125);
+}
+
+.toolbar input {
+  font-size: 20px;
+  padding: 2px 10px;
+  outline: none;
+}
+
+.classtableheader {
+  display: flex;
+  border-top: 1px solid black;
+  border-right: 1px solid black;
+  font-size: 18px;
+  font-weight: bold;
+  background: rgb(163, 163, 163);
+}
+
+.no {
+ width: 10%;
+}
+
+.class {
+  width: 30%;
+}
+
+.totalfee {
+  width: 30%;
+}
+
+.action {
+  width: 30%;
+}
+
+.no,
+.class,
+.totalfee,
+.action {
+  padding-left: 10px;
+  border-left: 1px solid black;
+  border-bottom: 1px solid black;
+  display: flex;
+  align-items: center;
+  height: 30px;
+}
+
+.action {
+  gap: 10px;
+}
+
+.action button {
+  padding: 2px 10px;
+}
+
+.action button:nth-child(2) {
+  background: rgb(239, 21, 21);
+}
+
+.action button:nth-child(1) {
+  background: rgb(61, 239, 21);
+}
+
+.classtableentry {
+  display: flex;
+  border-right: 1px solid black;
+  font-size: 18px;
+  background: rgb(255, 255, 255);
+}

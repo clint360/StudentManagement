@@ -19,14 +19,13 @@ function SideBar() {
     </div>
     <div className='navigation'>
       <ul type='none'>
-      <li>Dashboard</li>
-      <li>Classes & Fees</li>
-      <li>Students</li>
-      <li>Payments</li>
-      <li>Payment Reports</li>
+      <li>📊 Dashboard</li>
+      <li>🏫 Classes & Fees</li>
+      <li>👥 Students</li>
+      <li>💵 Payments</li>
+      <li>📑 Payment Reports</li>
       </ul>
     </div>
-   <div className='copyright'> <b>@clint360</b> +237680612360</div>
     </div>
   )
 }
