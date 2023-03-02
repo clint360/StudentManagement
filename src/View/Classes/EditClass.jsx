@@ -30,8 +30,7 @@ function EditClass({close}) {
   },[feetypes])
 
   const deleteFeetype = (index) => {
-    let arr = feetypes.splice(1, index);
-    setFeetypes(arr)
+    setFeetypes(feetypes.filter(item => item !== feetypes[index]))
   }
  
   function saveClass(e) {
@@ -91,7 +90,7 @@ function EditClass({close}) {
         {item.val}
         </div>
         <div className='delete'>
-        <button onClick={deleteFeetype}>x</button>
+        <button  onClick={()=>{deleteFeetype(index)}} type='button'>x</button>
         </div> 
         </div>
        )})}

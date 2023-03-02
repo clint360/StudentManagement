@@ -5,10 +5,15 @@ import NewEntry from './NewEntry';
 import { useState } from 'react';
 import EditClass from './EditClass';
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 function Classes() {
   const { classes, setClasses, currency, setCCI } = useContext(MainContext)
   const [newEntryViewState, setNewEntryViewState] = useState('none')
   const [editEntryViewState, setEditEntryViewState] = useState('none')
+
+  const deleted = (index) => toast(`❌ ${classes[index].name} Deleted`);
 
   useEffect(()=>{
     let a = classes[1].fees
@@ -16,7 +21,8 @@ function Classes() {
   },[])
 
   function deleteClass(index) {
-    setClasses(classes.splice(index, 1));
+    setClasses(classes.filter(item => item !== classes[index]));
+   
   }
 
   function calcTotalAmount(index) {
@@ -30,6 +36,7 @@ function Classes() {
 
   return (
     <div className='classes'>
+      <ToastContainer autoClose={2000} pauseOnHover={false}/>
        <div className='newentrydiv' style={{display: newEntryViewState}}><NewEntry close={()=>{setNewEntryViewState('none')}} /></div>
        <div className='newentrydiv' style={{display: editEntryViewState}}><EditClass close={()=>{setEditEntryViewState('none')}} /></div> 
       <div><h1>Classes</h1></div>
@@ -52,7 +59,7 @@ function Classes() {
       <div className='totalfee'>{ calcTotalAmount(index)}</div>
       <div className='action'>
         <button onClick={()=>{ setCCI(classes.indexOf(item)); setEditEntryViewState('initial')}}>Edit</button>
-        <button onClick={()=>{deleteClass(index)}}>Delete</button>
+        <button onClick={()=>{deleted(index); deleteClass(index)}}>Delete</button>
       </div>
       </div>
       )})
