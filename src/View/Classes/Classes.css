@@ -4,7 +4,7 @@
 
 .newentrydiv {
   position: fixed;
-  top: 7.5%;
+  top: 2%;
   left: 40%;
 }
 
@@ -67,7 +67,7 @@
   border-bottom: 1px solid black;
   display: flex;
   align-items: center;
-  height: 30px;
+  min-height: 30px;
 }
 
 .action {

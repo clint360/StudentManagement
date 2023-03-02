@@ -1,19 +1,20 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { MainContext } from '../../Hooks/Context';
 import NewStudent from './NewStudent';
 import './Students.css'
 
 function Students() {
   const { students, setStudents, currency } = useContext(MainContext);
+  const [newStudentViewState, setNewStudentViewState] = useState('none')
 
   return (
     <div className='students'>
-      <div className='newentrydiv'><NewStudent /></div>
+      <div style={{display: newStudentViewState}} className='newentrydiv'><NewStudent close={()=>{setNewStudentViewState('none')}} /></div>
      <div><h1>Students</h1></div>
       <section className='toolbar'>
       <div>List of Students</div>
       <div><input type='text'/><button>Search</button></div>
-      <div><button>New Student</button></div>
+      <div><button onClick={()=>{setNewStudentViewState('initial')}}>New Student</button></div>
       </section>
       <section className='classtable'>
       <div className='classtableheader'>
