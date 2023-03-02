@@ -2,6 +2,12 @@
   padding-top: 10px;
 }
 
+.classes .newentrydiv {
+  position: fixed;
+  top: 7.5%;
+  left: 40%;
+}
+
 .toolbar {
   display: flex;
   justify-content: space-between;

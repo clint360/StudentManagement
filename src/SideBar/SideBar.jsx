@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './SideBar.css';
 import logo from '../Assets/logo192.svg'
+import { MainContext } from '../Hooks/Context';
 
 function SideBar() {
   const sideBarStyles = {

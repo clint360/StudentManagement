@@ -1,0 +1,67 @@
+.newentry {
+  width: 400px;
+  min-height: 80vh;
+  background: white;
+  padding: 2px 10px 12px 12px;
+  font-size: 20px;
+  border: 1px solid grey;
+}
+
+.opner {
+  font-size: 22px;
+  line-height: 50px;
+  border-bottom: 1px solid grey;
+}
+
+.classdetails {
+  padding: 0;
+}
+
+.newentry h1 {
+  font-size: 25px;
+  line-height: 25px;
+}
+
+.viewaddeditems{
+  width: 375px;
+  height: 160px;
+  border: 2px solid black;
+  font-size: 14px;
+  overflow-y: scroll;
+}
+
+.newentry input{
+  outline: none;
+  font-size: 20px;
+  border: none;
+  border-bottom: 1px solid black ;
+}
+
+.viewrow {
+  display: flex;
+  padding-left: 12px;
+  font-weight: bold;
+}
+
+ .feetype {
+  width: 45%;
+}
+
+ .amount {
+  width: 40%;
+}
+
+ .delete {
+ 
+}
+
+.newentry button {
+  margin: 5px;
+  padding: 2.5px 10px;
+}
+
+.viewrow1 {
+  display: flex;
+  padding-left: 12px;
+  height: 28px;
+}
