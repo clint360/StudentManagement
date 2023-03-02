@@ -6,11 +6,13 @@ import Classes from "./View/Classes/Classes";
 import { Provider } from "./Hooks/Context";
 import { useState } from "react";
 import Students from "./View/Students/Students";
+import Payments from "./View/Payments/Payments";
+import Reports from "./View/PaymentReports/Reports";
 
 function App() {
-  const [currency, setCurrency] = useState('XAF');
+  const [currency, setCurrency] = useState("XAF");
   const [CCI, setCCI] = useState(0);
-  const [ classes, setClasses ] = useState([
+  const [classes, setClasses] = useState([
     {
       name: "Form 1",
       fees: [
@@ -30,7 +32,7 @@ function App() {
         {
           type: "Books",
           val: 100000,
-        }
+        },
       ],
     },
     {
@@ -43,52 +45,71 @@ function App() {
         {
           type: "Books",
           val: 140000,
-        }
+        },
       ],
-    }
+    },
   ]);
 
-  const [ students, setStudents ] = useState([
+  const [students, setStudents] = useState([
     {
-      name: 'Chia Clint Animbom',
-      adno: 'F101',
-      sex: 'M',
-      class: 'Form 2',
-      profilePicture: '',
-      guardianName: 'Mr Ferdinand',
-      phone: '677806233',
-      email: 'clintani360@gmail.com',
-      DOB: '28-07-2005',
-      POB: 'Mbingo',
-      Address: 'Obili',
+      name: "Chia Clint Animbom",
+      adno: "F101",
+      sex: "M",
+      class: "Form 2",
+      profilePicture: "",
+      guardianName: "Mr Ferdinand",
+      phone: "677806233",
+      email: "clintani360@gmail.com",
+      DOB: "28-07-2005",
+      POB: "Mbingo",
+      Address: "Obili",
       payableFee: 50000,
       paidFee: 0,
-      balance: ()=>{return ( this.payableFee  - this.paidFee )}
-    }
-  ])
+      balance: () => {
+        return this.payableFee - this.paidFee;
+      },
+    },
+  ]);
+  const [currentStudentIndex, setCurrentStudentIndex] = useState(0);
+  const [colorTheme, setColorTheme] = useState('#000');
 
   return (
-    <Provider value={{ classes, setClasses, currency, CCI, setCCI, students, setStudents }}>
-      <div className='tools'>
-        <div title='Settings'>⚙</div>
-        <div title='Theme'>🎨</div>
-        <div title='LogOut Session'>📴</div>
-      </div>
-      <div className='face'>
-        <div className='sidebarsection'>
-          <SideBar />
+    <Router>
+      <Provider
+        value={{
+          classes,
+          setClasses,
+          currency,
+          CCI,
+          setCCI,
+          students,
+          setStudents,
+          currentStudentIndex,
+          setCurrentStudentIndex,
+          colorTheme
+        }}
+      >
+        <div className='tools'>
+          <div title='Settings'>⚙</div>
+          <div title='Theme'>🎨<input type='color' onChange={(e)=>{setColorTheme(e.target.value)}} /></div>
+          <div title='LogOut Session'>📴</div>
         </div>
-        <div className='viewsection'>
-          <Router>
+        <div className='face'>
+          <div className='sidebarsection'>
+            <SideBar />
+          </div>
+          <div className='viewsection'>
             <Routes>
               <Route path='/' element={<Dashboard />} />
               <Route path='/classes' element={<Classes />} />
               <Route path='/students' element={<Students />} />
+              <Route path='/payments' element={<Payments />} />
+              <Route path='/reports' element={<Reports />} />
             </Routes>
-          </Router>
+          </div>
         </div>
-      </div>
-    </Provider>
+      </Provider>
+    </Router>
   );
 }
 

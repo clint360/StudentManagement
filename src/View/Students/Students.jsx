@@ -1,15 +1,17 @@
 import React, { useContext, useState } from 'react';
 import { MainContext } from '../../Hooks/Context';
+import EditStudent from './EditStudent';
 import NewStudent from './NewStudent';
 import './Students.css'
 
 function Students() {
-  const { students, setStudents, currency } = useContext(MainContext);
+  const { students, setStudents, currency, setCurrentStudentIndex } = useContext(MainContext);
   const [newStudentViewState, setNewStudentViewState] = useState('none')
-
+  const [editStudentViewState, setEditStudentViewState] = useState('none')
   return (
     <div className='students'>
       <div style={{display: newStudentViewState}} className='newentrydiv'><NewStudent close={()=>{setNewStudentViewState('none')}} /></div>
+      <div style={{display: editStudentViewState}}  className='newentrydiv'><EditStudent close={()=>{setEditStudentViewState('none')}} /></div>
      <div><h1>Students</h1></div>
       <section className='toolbar'>
       <div>List of Students</div>
@@ -18,7 +20,7 @@ function Students() {
       </section>
       <section className='classtable'>
       <div className='classtableheader'>
-      <div className='adno'>AdNo</div>
+      <div className='adno'>A.No</div>
       <div className='name'>Student Name</div>
       <div className='sex'>Sex</div>
       <div className='classs'>Class</div>
@@ -37,7 +39,7 @@ function Students() {
         <div className='paid'>{item.paidFee}</div>
         <div className='bal'>{(item.payableFee - item.paidFee)}</div>
         <div className='actions action'>
-        <button>Edit</button>
+        <button onClick={()=>{setCurrentStudentIndex(index); setEditStudentViewState('initial')}}>Edit</button>
         <button>Delete</button>
         <button>👁</button>
         </div>

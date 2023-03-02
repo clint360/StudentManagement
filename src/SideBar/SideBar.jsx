@@ -1,11 +1,15 @@
-import React, { useContext } from 'react'
+import React, { useEffect } from 'react'
 import './SideBar.css';
-import logo from '../Assets/logo192.svg'
+import logo from '../Assets/school.png'
+import { Link } from 'react-router-dom';
+import { useContext } from 'react';
 import { MainContext } from '../Hooks/Context';
 
+
 function SideBar() {
+  const { colorTheme } = useContext(MainContext);
   const sideBarStyles = {
-    background: 'green'
+    background: colorTheme
   }
 
   return (
@@ -20,11 +24,11 @@ function SideBar() {
     </div>
     <div className='navigation'>
       <ul type='none'>
-      <li>📊 Dashboard</li>
-      <li>🏫 Classes & Fees</li>
-      <li>👥 Students</li>
-      <li>💵 Payments</li>
-      <li>📑 Payment Reports</li>
+     <Link to='/'> <li>📊 Dashboard </li></Link>
+     <Link to='/classes'><li>🏫 Classes & Fees</li></Link>
+     <Link to='/students'><li>👥 Students</li></Link>
+     <Link to='/payments'><li>💵 Payments</li></Link>
+     <Link to='/reports'><li>📑 Payment Reports</li></Link>
       </ul>
     </div>
     </div>
