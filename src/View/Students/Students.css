@@ -1,0 +1,53 @@
+.adno {
+  width: 5%;
+}
+
+.name {
+  width: 22.5%;
+}
+
+.sex {
+  width: 5%;
+}
+
+.classs {
+  width: 12.5%;
+}
+
+.payable {
+  width: 13%;
+}
+
+.paid {
+  width: 10%;
+}
+
+.bal {
+  width: 13%;
+}
+
+.actions {
+  width: 19%;
+}
+
+.actions,
+.adno,
+.bal,
+.classs,
+.name,
+.paid,
+.payable,
+.sex {
+  border-bottom: 1px solid black;
+  border-left: 1px solid black;
+  padding-left: 7.5px;
+  line-height: 30px;
+  overflow: hidden;
+}
+
+.studenttablerow {
+  display: flex;
+  border-right: 1px solid black;
+  font-size: 18px;
+  background: rgb(255, 255, 255);
+}

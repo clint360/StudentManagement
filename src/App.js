@@ -5,6 +5,7 @@ import "./App.css";
 import Classes from "./View/Classes/Classes";
 import { Provider } from "./Hooks/Context";
 import { useState } from "react";
+import Students from "./View/Students/Students";
 
 function App() {
   const [currency, setCurrency] = useState('XAF');
@@ -47,8 +48,27 @@ function App() {
     }
   ]);
 
+  const [ students, setStudents ] = useState([
+    {
+      name: 'Chia Clint Animbom',
+      adno: 'F101',
+      sex: 'M',
+      class: 'Form 2',
+      profilePicture: '',
+      guardianName: 'Mr Ferdinand',
+      phone: '677806233',
+      email: 'clintani360@gmail.com',
+      DOB: '28-07-2005',
+      POB: 'Mbingo',
+      Address: 'Obili',
+      payableFee: 50000,
+      paidFee: 0,
+      balance: ()=>{return ( this.payableFee  - this.paidFee )}
+    }
+  ])
+
   return (
-    <Provider value={{ classes, setClasses, currency, CCI, setCCI }}>
+    <Provider value={{ classes, setClasses, currency, CCI, setCCI, students, setStudents }}>
       <div className='tools'>
         <div title='Settings'>⚙</div>
         <div title='Theme'>🎨</div>
@@ -63,6 +83,7 @@ function App() {
             <Routes>
               <Route path='/' element={<Dashboard />} />
               <Route path='/classes' element={<Classes />} />
+              <Route path='/students' element={<Students />} />
             </Routes>
           </Router>
         </div>

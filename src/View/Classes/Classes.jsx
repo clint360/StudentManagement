@@ -43,7 +43,7 @@ function Classes() {
       <section className='toolbar'>
       <div>List of Classes and Fees</div>
       <div><input type='text'/><button>Search</button></div>
-      <div><button onClick={()=>{setNewEntryViewState('initial')}}>New Entry</button></div>
+      <div><button onClick={()=>{setNewEntryViewState('initial')}}>New Class</button></div>
       </section>
       <section className='classtable'>
       <div className='classtableheader'>
