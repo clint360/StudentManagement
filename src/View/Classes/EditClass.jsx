@@ -13,7 +13,7 @@ function EditClass({close}) {
    useEffect(()=>{
     classRef.current.value = classes[CCI].name
     setFeetypes(classes[CCI].fees) 
-  },[CCI])
+  },[CCI, classes])
 
   function totalSetter(value) {
     setTotal(value);

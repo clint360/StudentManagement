@@ -16,7 +16,7 @@ function NewStudent({close}) {
   const addressRef = useRef(null);
   const phoneRef = useRef(null);
   const emailRef = useRef(null);
-  const options = [...classes.map((item, index)=> {return(
+  const options = [...classes.map((item)=> {return(
     {value: item.fees, label: item.name }
   )})]
 

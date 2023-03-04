@@ -18,7 +18,7 @@ function Classes() {
   useEffect(()=>{
     let a = classes[1].fees
    console.log(a[1].val)
-  },[])
+  },[classes])
 
   function deleteClass(index) {
     setClasses(classes.filter(item => item !== classes[index]));

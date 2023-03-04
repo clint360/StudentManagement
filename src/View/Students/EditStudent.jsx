@@ -4,7 +4,7 @@ import './NewStudent.css';
 import Select from 'react-select';
 
 function EditStudent({close}) {
-    const { classes, setStudents, students, currentStudentIndex,   setCurrentStudentIndex } = useContext(MainContext);
+    const { classes, setStudents, students, currentStudentIndex } = useContext(MainContext);
     const [ sclass, setSclass] = useState(null);
     const [image, setImage ] = useState('');
     const [sTF, setSTF] = useState(0);
@@ -17,7 +17,7 @@ function EditStudent({close}) {
     const addressRef = useRef(null);
     const phoneRef = useRef(null);
     const emailRef = useRef(null);
-    const options = [...classes.map((item, index)=> {return(
+    const options = [...classes.map((item)=> {return(
       {value: item.fees, label: item.name }
     )})]
   
