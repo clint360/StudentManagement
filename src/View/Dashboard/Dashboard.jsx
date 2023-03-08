@@ -30,9 +30,9 @@ function Dashboard() {
     <section className='stats'>
     <div className='statcard'>
     <div className='colorbox c1'>
+    <t className='t'>Total Number of Registered Students</t>
     {students.length}
     </div>
-    <h2>Total Number of Registered Students</h2>
     </div>
     <div className='statcard'>
     <div className='colorbox c2'>
