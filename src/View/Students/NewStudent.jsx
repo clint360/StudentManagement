@@ -40,6 +40,8 @@ function NewStudent({close}) {
       let phone = phoneRef.current.value;
       let email = emailRef.current.value;
       let adNumber = generateAdNumber(sclass, students);
+      let balance = sTF - 0;
+
       let newStudent = {
         name: studentname.toUpperCase(),
         adno: adNumber,
@@ -54,7 +56,7 @@ function NewStudent({close}) {
         Address: address,
         payableFee: sTF,
         paidFee: 0,
-        balance: ()=>{return ( this.payableFee  - this.paidFee )}
+        balance: balance,
       }
       setStudents([...students, newStudent]);
       studentnameRef.current.value = '';
@@ -128,7 +130,7 @@ function NewStudent({close}) {
           <button className='save' type='submit'>
             Save
           </button>
-          <button className='cancel' onClick={close}>
+          <button className='cancel' type='submit' onClick={close}>
             Cancel
           </button>
      </form>

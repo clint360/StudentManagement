@@ -11,9 +11,9 @@ import Reports from "./View/PaymentReports/Reports";
 
 function App() {
   const [currency, setCurrency] = useState("XAF");
-  const [CCI, setCCI] = useState(0);
+  const [CCI, setCCI] = useState(null);
   const [classes, setClasses] = useState([
-    {
+    /*{
       name: "Form 1",
       fees: [
         {
@@ -48,7 +48,8 @@ function App() {
         },
       ],
     },
-  ]);
+  */
+ ]);
 
   const [students, setStudents] = useState([
     {
@@ -69,21 +70,13 @@ function App() {
     },
   ]);
   const [ payments, setPayments ] = useState([
-   /* {
-      payno: "P101", 
-      date:    '28 Feb 2023'  ,     
-      studentName: "Chia Clint Animbom",
-      adno: 50000,
-      studentClass: "Form 2",
-      classFees: [''],
-      amount: 100000,
-      balance: 2000,
-      remark: 'Paid'
-    }*/
+
   ])
 
   const [currentStudentIndex, setCurrentStudentIndex] = useState(0);
+  const [ studentPaying, setStudentPaying ] = useState(0);
   const [colorTheme, setColorTheme] = useState('#000');
+
 
   return (
     <Router>
@@ -100,7 +93,9 @@ function App() {
           setCurrentStudentIndex,
           colorTheme,
           payments,
-          setPayments
+          setPayments, 
+          studentPaying,
+          setStudentPaying
         }}
       >
         <div className='tools'>

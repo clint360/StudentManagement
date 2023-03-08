@@ -11,8 +11,10 @@ function EditClass({close}) {
   const amountRef = useRef(null);
 
    useEffect(()=>{
+    if(CCI) {
     classRef.current.value = classes[CCI].name
     setFeetypes(classes[CCI].fees) 
+    }
   },[CCI, classes])
 
   function totalSetter(value) {

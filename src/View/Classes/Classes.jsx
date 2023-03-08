@@ -15,23 +15,20 @@ function Classes() {
 
   const deleted = (index) => toast(`❌ ${classes[index].name} Deleted`);
 
-  useEffect(()=>{
-    let a = classes[1].fees
-   console.log(a[1].val)
-  },[classes])
-
   function deleteClass(index) {
     setClasses(classes.filter(item => item !== classes[index]));
    
   }
 
   function calcTotalAmount(index) {
+    if(classes.length >= 0) {
     let arr = classes[index].fees
     let totalAmount = 0;
     for(let i = 0; i < arr.length; i ++) {
      totalAmount += arr[i].val; 
     }
     return totalAmount
+  }
   }
 
   return (
