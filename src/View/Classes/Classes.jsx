@@ -21,14 +21,12 @@ function Classes() {
   }
 
   function calcTotalAmount(index) {
-    if(classes.length >= 0) {
     let arr = classes[index].fees
     let totalAmount = 0;
     for(let i = 0; i < arr.length; i ++) {
      totalAmount += arr[i].val; 
     }
     return totalAmount
-  }
   }
 
   return (
@@ -55,7 +53,7 @@ function Classes() {
       <div className='class'>{item.name}</div>
       <div className='totalfee'>{ calcTotalAmount(index)}</div>
       <div className='action'>
-        <button onClick={()=>{ setCCI(classes.indexOf(item)); setEditEntryViewState('initial')}}>Edit</button>
+        <button onClick={()=>{ setCCI(classes.indexOf(item)); console.log(index);  setEditEntryViewState('initial')}}>Edit</button>
         <button onClick={()=>{deleted(index); deleteClass(index)}}>Delete</button>
       </div>
       </div>

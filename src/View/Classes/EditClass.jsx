@@ -1,5 +1,7 @@
 import React, { useState, useRef, useEffect, useContext } from 'react';
 import './NewEntry.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { MainContext } from '../../Hooks/Context';
 
 function EditClass({close}) {
@@ -9,9 +11,12 @@ function EditClass({close}) {
   const classRef = useRef(null);
   const feetypeRef = useRef(null);
   const amountRef = useRef(null);
+  
+  const savedToast = () => toast(`Saved`)
 
    useEffect(()=>{
-    if(CCI) {
+    if(CCI !== null) {
+    console.log(classes[CCI].name)
     classRef.current.value = classes[CCI].name
     setFeetypes(classes[CCI].fees) 
     }
@@ -37,6 +42,7 @@ function EditClass({close}) {
  
   function saveClass(e) {
     e.preventDefault();
+    savedToast()
     classes[CCI] = {
       name: classRef.current.value,
       fees: feetypes
@@ -56,7 +62,7 @@ function EditClass({close}) {
 
   return (
     <div className='newentry'>
-      <div className='opner'>New Class and Fees Entry</div>
+      <div className='opner'>Edit Class and Fees Entry</div>
       <form onSubmit={saveClass}>
       <section className='classdetails'>
       <h1>Class Details</h1>
@@ -101,7 +107,7 @@ function EditClass({close}) {
         Total: {total} {currency}
        </div>
        <button type='submit'>Save</button>
-       <button onClick={close}>Close</button>
+       <button type='button' onClick={close}>Close</button>
       </section>
       </form>
     </div>
