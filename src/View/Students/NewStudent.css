@@ -60,3 +60,7 @@
 .cancel {
   background: orange;
 }
+
+button:hover {
+  filter: brightness(150%);
+}

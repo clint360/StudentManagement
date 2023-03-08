@@ -79,7 +79,7 @@ function NewEntry({close}) {
         </div> 
         </div>
         {feetypes.map((item, index)=>{return(
-        <div className='viewrow1'>
+        <div className='viewrow1' key={index}>
         <div className="feetype">
         {item.type}
         </div> 

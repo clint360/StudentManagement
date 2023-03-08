@@ -1,0 +1,42 @@
+.payno {
+  width: 5%;
+}
+
+.date {
+  width: 12.5%;
+}
+
+.by {
+  width: 25%;
+}
+
+.classss {
+  width: 12.5%;
+}
+
+.amounts {
+  width: 13%;
+}
+
+.balancee {
+  width: 13%;
+}
+
+.actionsss {
+  width: 19%;
+}
+
+.payno,
+.date,
+.by,
+.classss,
+.amounts,
+.balancee,
+.actionsss {
+  border-bottom: 1px solid black;
+  border-left: 1px solid black;
+  padding-left: 7.5px;
+  line-height: 30px;
+  overflow: hidden;
+  max-height: 30px;
+}

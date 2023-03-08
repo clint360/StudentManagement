@@ -53,7 +53,7 @@ function Classes() {
       <div className='action'>Action</div>
       </div>
       { classes.map((item, index)=> { return (
-      <div className='classtableentry'>
+      <div className='classtableentry' key={item.name}>
       <div className='no'>{index + 1}</div>
       <div className='class'>{item.name}</div>
       <div className='totalfee'>{ calcTotalAmount(index)}</div>

@@ -119,7 +119,7 @@ function NewStudent({close}) {
           <input type='text' ref={addressRef} />
           <br />
           Phone: 
-          <input type='number' ref={phoneRef} />
+          <input type='phone' ref={phoneRef} />
           <br />
           Email: 
           <input type='email' ref={emailRef} />

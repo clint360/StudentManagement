@@ -30,7 +30,7 @@ function Students() {
       <div className='actions'>Action</div>
       </div>
        { students.map((item, index)=> { return (
-        <div className='studenttablerow'>
+        <div className='studenttablerow' key={item.adno}>
         <div className='adno'>{item.adno}</div>
         <div className='name'>{item.name}</div>
         <div className='sex'>{item.sex}</div>

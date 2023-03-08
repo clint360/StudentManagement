@@ -65,11 +65,23 @@ function App() {
       Address: "Obili",
       payableFee: 50000,
       paidFee: 0,
-      balance: () => {
-        return this.payableFee - this.paidFee;
-      },
+      balance: 50000,
     },
   ]);
+  const [ payments, setPayments ] = useState([
+   /* {
+      payno: "P101", 
+      date:    '28 Feb 2023'  ,     
+      studentName: "Chia Clint Animbom",
+      adno: 50000,
+      studentClass: "Form 2",
+      classFees: [''],
+      amount: 100000,
+      balance: 2000,
+      remark: 'Paid'
+    }*/
+  ])
+
   const [currentStudentIndex, setCurrentStudentIndex] = useState(0);
   const [colorTheme, setColorTheme] = useState('#000');
 
@@ -86,7 +98,9 @@ function App() {
           setStudents,
           currentStudentIndex,
           setCurrentStudentIndex,
-          colorTheme
+          colorTheme,
+          payments,
+          setPayments
         }}
       >
         <div className='tools'>
