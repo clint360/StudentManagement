@@ -6,7 +6,8 @@ import Select from 'react-select';
 function NewStudent({close}) {
   const { classes, setStudents, students } = useContext(MainContext);
   const [ sclass, setSclass] = useState(null);
-  const [image, setImage ] = useState('');
+  const [ randomChange, setRandomChange ] = useState('.');
+  const [ defaultValue, setDefaultValue ] = useState(null)
   const [sTF, setSTF] = useState(0);
   const studentnameRef = useRef(null);
   const sexRef = useRef(null);
@@ -16,6 +17,7 @@ function NewStudent({close}) {
   const addressRef = useRef(null);
   const phoneRef = useRef(null);
   const emailRef = useRef(null);
+  const [imageURL, setImageURL] = useState('')
   const options = [...classes.map((item)=> {return(
     {value: item.fees, label: item.name }
   )})]
@@ -23,6 +25,12 @@ function NewStudent({close}) {
   useEffect(()=>{
 
   })
+
+  const handleImageUpload = (e) => {
+    setImageURL(URL.createObjectURL(e.target.files[0])
+    )
+    console.log(imageURL);
+  }
 
   function generateAdNumber(sclass, iniarr) {
      let classID = sclass.split(' ').map((part) => part[0].toUpperCase()).join("");
@@ -47,13 +55,13 @@ function NewStudent({close}) {
         adno: adNumber,
         sex: sex.toUpperCase(),
         class: sclass,
-        profilePicture: image,
+        profilePicture: imageURL,
         guardianName: pg.toUpperCase(),
         phone: phone,
         email: email,
         DOB: dob,
         POB: pob,
-        Address: address,
+        Address: address.toUpperCase(),
         payableFee: sTF,
         paidFee: 0,
         balance: balance,
@@ -67,11 +75,14 @@ function NewStudent({close}) {
       addressRef.current.value= null;
       phoneRef.current.value = null;
       emailRef.current.value=null;
-      console.log(students)
+      console.log(students);
+      setDefaultValue(null);
+      setImageURL('');
     }
 
   const handleClassChange = (selectedOption) => {
     setSclass(selectedOption.label);
+    setDefaultValue(selectedOption)
     setSTF(0);
     let value=selectedOption.value
     for(let i = 0; i < value.length; i++) {
@@ -89,11 +100,10 @@ function NewStudent({close}) {
          <div className='photoarea'>
           <div className='uploadimage'>
             Upload Student Photo:
-            <input type='file' accept='image/*' />
-            <button type='button'> Upload </button>
+            <input type='file' accept='image/*' name='imagefile'  onChange={handleImageUpload}/>
           </div>
           <div className='imageContainer'>
-           <img src='' alt='Image' />
+           <img src={imageURL} alt='Student' />
           </div>
          </div>
          <div className='studentinformation'>
@@ -105,7 +115,7 @@ function NewStudent({close}) {
          Class: 
           <Select options={options} 
            onChange={handleClassChange}
-           defaultValue={{value: '0', label: 'Select'}}
+           value={defaultValue}
           />
           <br />
           Date of Birth: 
@@ -130,7 +140,7 @@ function NewStudent({close}) {
           <button className='save' type='submit'>
             Save
           </button>
-          <button className='cancel' type='submit' onClick={close}>
+          <button className='cancel' type='submit' onClick={()=>{setDefaultValue(null); close()}}>
             Cancel
           </button>
      </form>

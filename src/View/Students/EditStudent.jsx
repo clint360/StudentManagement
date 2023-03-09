@@ -6,7 +6,7 @@ import Select from 'react-select';
 function EditStudent({close}) {
     const { classes, setStudents, students, currentStudentIndex } = useContext(MainContext);
     const [ sclass, setSclass] = useState(null);
-    const [image, setImage ] = useState('');
+    const [imageURL, setImageURL ] = useState('');
     const [sTF, setSTF] = useState(0);
     const studentnameRef = useRef(null);
     const [adNumber, setAdnumber ] = useState(null)
@@ -22,6 +22,7 @@ function EditStudent({close}) {
     )})]
   
     useEffect(()=>{
+      if(currentStudentIndex !== null) {
       setAdnumber(students[currentStudentIndex].adno)
       studentnameRef.current.value = students[currentStudentIndex].name;
       sexRef.current.value = students[currentStudentIndex].sex;
@@ -29,9 +30,17 @@ function EditStudent({close}) {
       phoneRef.current.value = students[currentStudentIndex].phone;
       emailRef.current.value = students[currentStudentIndex].email;
      pobRef.current.value = students[currentStudentIndex].POB;
-     dobRef.current.value = students[currentStudentIndex].DOB;
-     addressRef.current.value = students[currentStudentIndex].Address
+     dobRef.current.value = `${students[currentStudentIndex].DOB}`;
+     addressRef.current.value = students[currentStudentIndex].Address;
+     setImageURL(students[currentStudentIndex].profilePicture)
+      }
     },[currentStudentIndex])
+
+    const handleImageUpload = (e) => {
+      setImageURL(URL.createObjectURL(e.target.files[0])
+      )
+      console.log(imageURL);
+    }
   
        function addStudent(e) {
         e.preventDefault();
@@ -43,12 +52,14 @@ function EditStudent({close}) {
         let address = addressRef.current.value;
         let phone = phoneRef.current.value;
         let email = emailRef.current.value;
+        let paidFee = students[currentStudentIndex].paidFee;
+        let bal = sTF - paidFee
         students[currentStudentIndex] = {
           name: studentname.toUpperCase(),
           adno: adNumber,
           sex: sex.toUpperCase(),
           class: sclass,
-          profilePicture: image,
+          profilePicture: imageURL,
           guardianName: pg.toUpperCase(),
           phone: phone,
           email: email,
@@ -56,8 +67,8 @@ function EditStudent({close}) {
           POB: pob,
           Address: address,
           payableFee: sTF,
-          paidFee: 0,
-          balance: ()=>{return ( this.payableFee  - this.paidFee )}
+          paidFee: paidFee,
+          balance: bal
         }
         setStudents(students);
       }
@@ -81,11 +92,10 @@ function EditStudent({close}) {
            <div className='photoarea'>
             <div className='uploadimage'>
               Upload Student Photo:
-              <input type='file' accept='image/*' />
-              <button type='button'> Upload </button>
+              <input type='file' accept='image/*' onChange={handleImageUpload} />
             </div>
             <div className='imageContainer'>
-             <img src='' alt='Image' />
+             <img src={imageURL} alt='Image' />
             </div>
            </div>
            <div className='studentinformation'>
@@ -97,7 +107,6 @@ function EditStudent({close}) {
            Class: 
             <Select options={options} 
              onChange={handleClassChange}
-             defaultValue={{value: '0', label: 'Select'}}
             />
             <br />
             Date of Birth: 

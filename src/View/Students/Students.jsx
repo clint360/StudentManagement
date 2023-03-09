@@ -29,6 +29,7 @@ function Students() {
       <div className='bal'>Balance ({currency})</div>
       <div className='actions'>Action</div>
       </div>
+      <div className='table'>
        { students.map((item, index)=> { return (
         <div className='studenttablerow' key={item.adno}>
         <div className='adno'>{item.adno}</div>
@@ -45,6 +46,10 @@ function Students() {
         </div>
         </div>
       )}) }
+      </div>
+      </section>
+      <section className='exportexcel'> 
+      <button>📑 Export Excel</button>
       </section>
     </div>
   )

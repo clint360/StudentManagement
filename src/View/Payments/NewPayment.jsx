@@ -17,12 +17,7 @@ function NewPayment({close}) {
  const [selectedClassFees, setSelectedClassFees] = useState([])
  const amountRef = useRef(null);
  const remarkRef = useRef(null);
- const date = new Date();
- const y = date.getFullYear();
- const m = date.getMonth();
- const d = date.getDay();
-
- const dateOTD = `${d}-${m}-${y}`
+ 
 
  useEffect(()=> {
   setOutstandingBalance(null)
@@ -52,6 +47,17 @@ function NewPayment({close}) {
 
 const savePayment = (e) => {
   e.preventDefault();
+
+  const date = new Date();
+  
+  const y = date.getFullYear();
+  let m = date.getMonth() + 1;
+  let d = date.getUTCDate();
+  console.log(d);
+  d = d < 10 ? `0${d}` : d;
+  m = m < 10 ? `0${m}` : d;
+  const dateOTD = `${d}-${m}-${y}`
+
  let amt = +amountRef.current.value
  let paidFee = students[studentPaying].paidFee + amt
  let balance = students[studentPaying].payableFee - paidFee 

@@ -52,3 +52,21 @@
   font-size: 16px;
   background: rgb(255, 255, 255);
 }
+
+.table {
+  max-height: 61.3vh;
+  background: white;
+  overflow-y: scroll;
+  width: calc(100% + 1.6%);
+}
+
+.exportexcel button{
+  position: fixed;
+  right: 20px;
+  bottom: 15px;
+  font-size: 20px;
+  padding: 2px 10px;
+  cursor: pointer;
+  color: white;
+  background: rgb(63, 63, 63);
+}

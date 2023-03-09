@@ -27,6 +27,7 @@ function Payments() {
           <div className='balancee'>Balance ({currency})</div>
           <div className='actionsss'>Action</div>
           </div>
+          <div className='table'>
          { payments.map((payment)=>{return (
            <div className='studenttablerow' key={payment.payno}>
            <div className='payno'>{payment.payno}</div>
@@ -40,7 +41,11 @@ function Payments() {
            </div>
            </div>
          )})}
+         </div>
           </section>
+          <section className='exportexcel'> 
+      <button>📑 Export Excel</button>
+      </section>
           </div>
   )
 }

@@ -13,7 +13,7 @@ function App() {
   const [currency, setCurrency] = useState("XAF");
   const [CCI, setCCI] = useState(null);
   const [classes, setClasses] = useState([
-    /*{
+    {
       name: "Form 1",
       fees: [
         {
@@ -48,7 +48,7 @@ function App() {
         },
       ],
     },
-  */
+  
  ]);
 
   const [students, setStudents] = useState([
