@@ -7,6 +7,7 @@ function Reports() {
   const { currency, payments } = useContext(MainContext);
   const [ reports, setReports ] = useState([]);
   const [querry, setQuerry ] = useState(null);
+  const [totalAmount, setTotalAmount ] = useState(0);
   
   useEffect(()=> {
      if(querry !== null) {
@@ -15,6 +16,13 @@ function Reports() {
       setReports(payments);
      }
   },[querry])
+
+  useEffect(()=> {
+    let sum = reports.reduce((accumulator, object) => {
+      return accumulator + +object.amount;
+    }, 0);
+    setTotalAmount(sum);
+  },[querry, reports])
 
   function handleMonthChange(e) {
     let date = `${e.target.value}`;
@@ -69,6 +77,9 @@ function Reports() {
            </div>
            </div>
          )})}
+         <div className='studenttablerow'>
+          Total: {totalAmount} {currency}
+         </div>
          </div>
           </section>
           <section className='exportexcel'> 
