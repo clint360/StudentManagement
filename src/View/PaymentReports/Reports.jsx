@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useContext } from 'react';
+import { parse } from '../../functions';
 import { MainContext } from '../../Hooks/Context';
 import './Reports.css'
 
@@ -70,15 +71,15 @@ function Reports() {
            <div className='date'>{payment.date}</div>
            <div className='by'>{payment.studentName}</div>
            <div className='classss'>{payment.studentClass}</div>
-           <div className='amounts'>{payment.amount}</div>
-           <div className='balancee'>{payment.balance}</div>
+           <div className='amounts'>{parse.format(payment.amount)}</div>
+           <div className='balancee'>{parse.format(payment.balance)}</div>
            <div className='actionsss'>
             {payment.remark}
            </div>
            </div>
          )})}
-         <div className='studenttablerow'>
-          Total: {totalAmount} {currency}
+         <div className='studenttablerow '>
+         <div className='lastrow'> Total: {parse.format(totalAmount)} {currency} </div>
          </div>
          </div>
           </section>

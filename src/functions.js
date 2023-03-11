@@ -1,0 +1,1 @@
+export const parse = Intl.NumberFormat('en-US');

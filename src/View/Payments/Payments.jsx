@@ -4,10 +4,11 @@ import { useContext } from 'react';
 import { MainContext } from '../../Hooks/Context';
 import NewPayment from './NewPayment';
 import './Payments.css'
+import { parse } from '../../functions';
 
 function Payments() {
  const { currency, payments } = useContext(MainContext)
- const [ nPVS, sNPVS ] = useState('none')
+ const [ nPVS, sNPVS ] = useState('none');
   return (
     <div>
      <div className='newentrydiv' style={{display: nPVS}}><NewPayment close={()=> sNPVS('none')}/></div> 
@@ -34,8 +35,8 @@ function Payments() {
            <div className='date'>{payment.date}</div>
            <div className='by'>{payment.studentName}</div>
            <div className='classss'>{payment.studentClass}</div>
-           <div className='amounts'>{payment.amount}</div>
-           <div className='balancee'>{payment.balance}</div>
+           <div className='amounts'>{parse.format(payment.amount)}</div>
+           <div className='balancee'>{parse.format(payment.balance)}</div>
            <div className='actionsss action'>
         <button>Print</button>
            </div>

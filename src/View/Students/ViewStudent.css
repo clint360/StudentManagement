@@ -1,0 +1,22 @@
+.viewstudentmain {
+  position: absolute;
+  z-index: 9999;
+}
+
+.viewstudentpage {
+  width: 496px;
+  height: 701.6px;
+  background: white;
+}
+
+.printstudent button{
+  position: fixed;
+  right: 20px;
+  bottom: 65px;
+  font-size: 20px;
+  padding: 2px 10px;
+  cursor: pointer;
+  color: white;
+  background: rgb(3, 109, 230);
+  z-index: 99999;
+}

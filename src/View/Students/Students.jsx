@@ -3,15 +3,19 @@ import { MainContext } from '../../Hooks/Context';
 import EditStudent from './EditStudent';
 import NewStudent from './NewStudent';
 import './Students.css'
+import ViewStudent from './ViewStudent';
 
 function Students() {
   const { students, setStudents, currency, setCurrentStudentIndex } = useContext(MainContext);
   const [newStudentViewState, setNewStudentViewState] = useState('none')
   const [editStudentViewState, setEditStudentViewState] = useState('none')
+  const [viewStudentViewState, setViewStudentViewState ] = useState('none')
   return (
     <div className='students'>
       <div style={{display: newStudentViewState}} className='newentrydiv'><NewStudent close={()=>{setNewStudentViewState('none')}} /></div>
       <div style={{display: editStudentViewState}}  className='newentrydiv'><EditStudent close={()=>{setEditStudentViewState('none')}} /></div>
+      <div style={{display: viewStudentViewState}}  className='newentrydiv'><ViewStudent close={()=>{setViewStudentViewState('none')}} /></div>
+     <>
      <div><h1>Students</h1></div>
       <section className='toolbar'>
       <div>List of Students</div>
@@ -42,7 +46,7 @@ function Students() {
         <div className='actions action'>
         <button onClick={()=>{setCurrentStudentIndex(index); setEditStudentViewState('initial')}}>Edit</button>
         <button>Delete</button>
-        <button>👁</button>
+        <button onClick={()=>{setCurrentStudentIndex(index); setViewStudentViewState('initial')}}>👁</button>
         </div>
         </div>
       )}) }
@@ -51,6 +55,7 @@ function Students() {
       <section className='exportexcel'> 
       <button>📑 Export Excel</button>
       </section>
+      </>
     </div>
   )
 }
