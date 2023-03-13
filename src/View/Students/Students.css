@@ -69,7 +69,6 @@
   cursor: pointer;
   color: white;
   background: rgb(63, 63, 63);
-  z-index: 1;
 }
 
 .flex {

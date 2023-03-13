@@ -1,6 +1,5 @@
 .viewstudentmain {
   position: absolute;
-  z-index: 9999;
 }
 
 .viewstudentpage {
@@ -32,3 +31,4 @@
   background: rgb(3, 109, 230);
   z-index: 99999;
 }
+
