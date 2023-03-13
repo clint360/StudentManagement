@@ -1,3 +1,7 @@
+body {
+  background: rgba(239, 239, 239, 0.974);
+}
+
 .face {
   display: flex;
 }
@@ -23,14 +27,19 @@
   background: green;
 }
 
+.topsection {
+  background: white;
+  height: 50px;
+}
+
 .sidebarsection {
   position: fixed;
 }
 
 .viewsection {
   padding: 40px 20px;
-  background: rgb(214, 212, 212);
+  background: rgba(239, 239, 239, 0.974);
   width: 100%;
-  margin-left: 280px;
+  margin-left: 250px;
   min-height: 87.7vh;
 }

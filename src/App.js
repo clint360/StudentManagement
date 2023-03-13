@@ -98,6 +98,7 @@ function App() {
           setStudentPaying
         }}
       >
+        
         <div className='tools'>
           <div title='Settings'>⚙</div>
           <div title='Theme'>🎨<input type='color' onChange={(e)=>{setColorTheme(e.target.value)}} /></div>
@@ -107,6 +108,7 @@ function App() {
           <div className='sidebarsection'>
             <SideBar />
           </div>
+          
           <div className='viewsection'>
             <Routes>
               <Route path='/' element={<Dashboard />} />

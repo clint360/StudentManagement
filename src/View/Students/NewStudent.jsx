@@ -22,10 +22,6 @@ function NewStudent({close}) {
     {value: item.fees, label: item.name }
   )})]
 
-  useEffect(()=>{
-
-  })
-
   const handleImageUpload = (e) => {
     setImageURL(URL.createObjectURL(e.target.files[0])
     )
