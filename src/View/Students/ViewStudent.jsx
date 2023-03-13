@@ -17,7 +17,8 @@ function ViewStudent({close}) {
         <img src={student.profilePicture} alt={student.name} />
        Name: {student.name}
        Class: {student.class}
-      </div>
+      </div>  
+      {/*ddsad*/}
       <br />
     <div className="printstudent">
       <button onClick={close}> 🖨 Close </button>
