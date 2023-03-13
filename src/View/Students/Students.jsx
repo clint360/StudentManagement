@@ -15,7 +15,7 @@ function Students() {
       <div style={{display: newStudentViewState}} className='newentrydiv'><NewStudent close={()=>{setNewStudentViewState('none')}} /></div>
       <div style={{display: editStudentViewState}}  className='newentrydiv'><EditStudent close={()=>{setEditStudentViewState('none')}} /></div>
       <div style={{display: viewStudentViewState}}  className='newentrydiv'><ViewStudent close={()=>{setViewStudentViewState('none')}} /></div>
-     <>
+     <div>
      <div><h1>Students</h1></div>
       <section className='toolbar'>
       <div>List of Students</div>
@@ -55,7 +55,7 @@ function Students() {
       <section className='exportexcel'> 
       <button>📑 Export Excel</button>
       </section>
-      </>
+      </div>
     </div>
   )
 }
