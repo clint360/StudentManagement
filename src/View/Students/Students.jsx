@@ -6,8 +6,9 @@ import NewStudent from './NewStudent';
 import './Students.css'
 import ViewStudent from './ViewStudent';
 import Select from 'react-select'
-import ArrayToExcelButton from '../../Components/ArrayToExcelButton';
 import { ExportToExcel } from '../../Components/ExportToExcel';
+import ReactToPrint, { useReactToPrint } from 'react-to-print';
+import { useRef } from 'react';
 
 function Students() {
   const { students, setStudents, classes, currency, setCurrentStudentIndex } = useContext(MainContext);
@@ -15,8 +16,13 @@ function Students() {
   const [editStudentViewState, setEditStudentViewState] = useState('none')
   const [viewStudentViewState, setViewStudentViewState ] = useState('none')
   const [ querriedStudents, setQuerriedStudents ] = useState([]);
+  const studentInfoRef = useRef();
   const [ q, sQS ] = useState([])
   const [ querry, setQuerry ] = useState(null);
+
+  const handlePrint = useReactToPrint({
+    content: ()=> studentInfoRef.current,
+  });
 
   const isPaid = [
     {value: 'all', label: 'All' },
@@ -89,9 +95,17 @@ function onSearch(e) {
 
   return (
     <div className='students'>
+      <ReactToPrint
+          trigger={() => {
+            // NOTE: could just as easily return <SomeComponent />. Do NOT pass an `onClick` prop
+            // to the root node of the returned component as it will be overwritten.
+            return <a href="#">Print this out!</a>;
+          }}
+          content={() => studentInfoRef.current}
+        />
       <div style={{display: newStudentViewState}} className='newentrydiv'><NewStudent close={()=>{setNewStudentViewState('none')}} /></div>
       <div style={{display: editStudentViewState}}  className='newentrydiv'><EditStudent close={()=>{setEditStudentViewState('none')}} /></div>
-      <div style={{display: viewStudentViewState}}  className='newentrydiv'><ViewStudent close={()=>{setViewStudentViewState('none')}} /></div>
+      <div style={{display: viewStudentViewState}}  className='newentrydiv'><ViewStudent close={()=>{setViewStudentViewState('none')}} print={handlePrint} ref={studentInfoRef} /></div>
      <div>
      <div><h1>Students</h1></div>
       <section className='toolbar'>

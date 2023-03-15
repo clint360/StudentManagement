@@ -79,7 +79,6 @@ const savePayment = (e) => {
   }
   setPayments((prev) => [...prev, payment]);
   amountRef.current.value = null;
-  setOutstandingBalance(null);
   remarkRef.current.value = null;
 }
 

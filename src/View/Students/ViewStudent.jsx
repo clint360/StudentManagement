@@ -2,13 +2,8 @@ import React, { useContext } from 'react';
 import { MainContext } from '../../Hooks/Context';
 import './ViewStudent.css'
 
-function print(){
-  var nw = window.open(<p>Hey How are you</p>,"asdasdnjasnd","width=900,height=600")
-    nw.print()
-      nw.close()
-};
 
-function ViewStudent({close}) {
+function ViewStudent({close, print}) {
   const {students, currentStudentIndex } = useContext(MainContext);
   let student = students[currentStudentIndex]
   return (

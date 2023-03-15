@@ -115,7 +115,7 @@ function NewStudent({close}) {
           />
           <br />
           Date of Birth: 
-          <input type='date' ref={dobRef} required />
+          <input type='date' placeholder='dd-mm-yyyy' ref={dobRef} required />
           <br />
           Place of Birth: 
           <input type='text' ref={pobRef}  required />

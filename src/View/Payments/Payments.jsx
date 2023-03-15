@@ -6,6 +6,7 @@ import NewPayment from './NewPayment';
 import './Payments.css'
 import { parse } from '../../functions';
 import { useEffect } from 'react';
+import { ExportToExcel } from '../../Components/ExportToExcel';
 
 function Payments() {
  const { currency, payments } = useContext(MainContext)
@@ -65,7 +66,7 @@ function Payments() {
          </div>
           </section>
           <section className='exportexcel'> 
-      <button>📑 Export Excel</button>
+          <ExportToExcel data={[...querriedPayments]} fileName='Payments'  />
       </section>
           </div>
   )

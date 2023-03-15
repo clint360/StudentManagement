@@ -9,7 +9,7 @@ export const ExportToExcel = ({ data, fileName }) => {
   const fileExtension = ".xlsx";
 
   const exportToCSV = (apiData, fileName) => {
-    const ws = XLSX.utils.json_to_sheet(apiData);
+    const ws = XLSX.utils.json_to_sheet(JSON.parse(apiData));
     const wb = { Sheets: { data: ws }, SheetNames: ["data"] };
     const excelBuffer = XLSX.write(wb, { bookType: "xlsx", type: "array" });
     const data = new Blob([excelBuffer], { type: fileType });
@@ -17,6 +17,6 @@ export const ExportToExcel = ({ data, fileName }) => {
   };
 
   return (
-    <button onClick={(e) => exportToCSV(apiData, fileName)}>Export</button>
+    <button onClick={(e) => exportToCSV(apiData, fileName)}>📑 Export Excel</button>
   );
 };

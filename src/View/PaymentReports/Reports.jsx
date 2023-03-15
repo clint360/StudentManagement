@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useContext } from 'react';
+import { ExportToExcel } from '../../Components/ExportToExcel';
 import { parse } from '../../functions';
 import { MainContext } from '../../Hooks/Context';
 import './Reports.css'
@@ -9,7 +10,8 @@ function Reports() {
   const [ reports, setReports ] = useState([]);
   const [querry, setQuerry ] = useState(null);
   const [totalAmount, setTotalAmount ] = useState(0);
-  
+  const date = (new Date()).toLocaleDateString()
+
   useEffect(()=> {
      if(querry !== null) {
      
@@ -84,7 +86,7 @@ function Reports() {
          </div>
           </section>
           <section className='exportexcel'> 
-      <button>📑 Export Excel</button>
+          <ExportToExcel data={[...reports]} fileName={`Reports(${date})`} />
       </section>
     </div>
   )
