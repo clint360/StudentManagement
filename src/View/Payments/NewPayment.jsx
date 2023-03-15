@@ -23,7 +23,7 @@ function NewPayment({close}) {
   setOutstandingBalance(null)
   setStudentOptions([]);
   let classStudents = students.filter((arr) => {return arr.class === selectedClass})
-  setStudentOptions([...classStudents.map((item)=> {return(
+  setStudentOptions([...classStudents.filter((object)=> object.balance !== 0 ).map((item)=> {return(
     {value: item.adno, label: item.name }
   )})] );
  },[selectedClass, students])  
@@ -112,7 +112,7 @@ const savePayment = (e) => {
       <input readOnly value={ outstandingBalance ? `${outstandingBalance} ${currency}`: '' } style={{color: 'red'}}/>
       <br />
       <legend>Amount:</legend>
-      <input type='number' name='amt' ref={amountRef} required/>
+      <input type='number' name='amt' ref={amountRef} max={outstandingBalance} required/>
       <br />
       <legend>Remarks:</legend>
       <input type="text" ref={remarkRef} />

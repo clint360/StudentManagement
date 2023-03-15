@@ -6,6 +6,8 @@ import NewStudent from './NewStudent';
 import './Students.css'
 import ViewStudent from './ViewStudent';
 import Select from 'react-select'
+import ArrayToExcelButton from '../../Components/ArrayToExcelButton';
+import { ExportToExcel } from '../../Components/ExportToExcel';
 
 function Students() {
   const { students, setStudents, classes, currency, setCurrentStudentIndex } = useContext(MainContext);
@@ -25,12 +27,12 @@ function Students() {
     {value: item.name, label: item.name }
   )})]
 
-  useEffect(()=>{
+const sort = ()=>{
   const sortedList = querriedStudents.sort((a, b) =>
       a.name.localeCompare(b.name));
       setQuerriedStudents([...sortedList])
       sQS([...sortedList]);
-  },[students])
+  }
 
   useEffect(()=>{
     if(querry !== null) {
@@ -94,6 +96,7 @@ function onSearch(e) {
      <div><h1>Students</h1></div>
       <section className='toolbar'>
       <div>List of Students</div>
+      <div><button onClick={sort}>A-Z</button></div>
       <div><div className='flex'>By Class<Select options={classOptions} onChange={onByClassChange} /></div></div>
       <div className='flex'>By Balance <div><Select options={isPaid} onChange={onByBalanceChange}/></div></div>
       <div><input type='text' placeholder='Search Name' onChange={onSearch}/></div>
@@ -121,7 +124,9 @@ function onSearch(e) {
         <div className='paid'>{item.paidFee}</div>
         <div className='bal'>{(item.payableFee - item.paidFee)}</div>
         <div className='actions action'>
-        <button onClick={()=>{setCurrentStudentIndex(index); setEditStudentViewState('initial')}}>Edit</button>
+        <button onClick={()=>{setCurrentStudentIndex(
+          querriedStudents.findIndex((obj)=>obj.name === item.name)
+        ); setEditStudentViewState('initial')}}>Edit</button>
         <button>Delete</button>
         <button onClick={()=>{setCurrentStudentIndex(index); setViewStudentViewState('initial')}}>👁</button>
         </div>
@@ -130,7 +135,7 @@ function onSearch(e) {
       </div>
       </section>
       <section className='exportexcel'> 
-      <button>📑 Export Excel</button>
+      <ExportToExcel data={[...querriedStudents]} fileName='students'  />
       </section>
       </div>
     </div>
