@@ -141,10 +141,10 @@ function onSearch(e) {
         </div>
         </div>
       )}) }
-       <div className='studenttablerow '>
+      </div>
+      <div className='studenttablerow '>
          <div className='lastrow'> Number Of Students: {querriedStudents.length} </div>
          </div>
-      </div>
       </section>
       <section className='exportexcel'> 
       <ExportToExcel data={[...querriedStudents]} fileName='students'  />

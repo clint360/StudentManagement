@@ -57,7 +57,7 @@
   max-height: 61.3vh;
   background: white;
   overflow-y: scroll;
-  width: calc(100% + 1.6%);
+  width: calc(100% + 1%);
 }
 
 .exportexcel button{
