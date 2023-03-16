@@ -1,7 +1,8 @@
-const payment = 
+export const paymentTemplate = 
   {
     payno: "", 
-    date:    ''  ,     
+    date: ''  , 
+    time: '',    
     studentName: "",
     adno: 0,
     studentClass: "",

@@ -54,7 +54,7 @@ function NewStudent({close}) {
         profilePicture: imageURL,
         guardianName: pg.toUpperCase(),
         phone: phone,
-        email: email,
+        email: email.toLowerCase(),
         DOB: dob,
         POB: pob,
         Address: address.toUpperCase(),

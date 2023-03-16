@@ -76,3 +76,17 @@
   gap: 10px;
   align-items: center;
 }
+
+.abs{
+  position: fixed;
+  z-index: 9999;
+}
+
+.react-select-container {
+  position: absolute;
+  z-index: 0;
+}
+.react-select {
+  position: absolute;
+  z-index: 0;
+}

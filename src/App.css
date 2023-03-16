@@ -44,3 +44,15 @@ body {
   min-height: 87.7vh;
 }
 
+.settingsModal {
+  position: absolute;
+  background: #192023 ;
+  color: white;
+  width: 200px;
+  height: 300px;
+  right: 30px;
+  top: 50px;
+  border-radius: 10px;
+  padding: 10px;
+}
+

@@ -104,8 +104,10 @@ function onSearch(e) {
       <section className='toolbar'>
       <div>List of Students</div>
       <div><button onClick={sort}>A-Z</button></div>
-      <div><div className='flex'>By Class<Select options={classOptions} onChange={onByClassChange} /></div></div>
-      <div className='flex'>By Balance <div><Select options={isPaid} onChange={onByBalanceChange}/></div></div>
+      <div><div className='flex'>By Class<Select className="react-select-container"
+  classNamePrefix="react-select" options={classOptions} onChange={onByClassChange} /></div></div>
+      <div className='flex'>By Balance <div><Select className="react-select-container"
+  classNamePrefix="react-select" options={isPaid} onChange={onByBalanceChange}/></div></div>
       <div><input type='text' placeholder='Search Name' onChange={onSearch}/></div>
       <div><button onClick={()=>{setNewStudentViewState('initial')}}>New Student</button></div>
       </section>

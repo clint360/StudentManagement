@@ -9,6 +9,7 @@ import Students from "./View/Students/Students";
 import Payments from "./View/Payments/Payments";
 import Reports from "./View/PaymentReports/Reports";
 
+
 function App() {
   const [currency, setCurrency] = useState("XAF");
   const [CCI, setCCI] = useState(null);
@@ -72,11 +73,11 @@ function App() {
   const [ payments, setPayments ] = useState([
 
   ])
-
   const [currentStudentIndex, setCurrentStudentIndex] = useState(0);
+  const [currentPaymentIndex, setCurrentPaymentIndex] = useState(null);
   const [ studentPaying, setStudentPaying ] = useState(0);
   const [colorTheme, setColorTheme] = useState('#000');
-
+  let [ sMD, sSMD ] = useState('none')
 
   return (
     <Router>
@@ -95,15 +96,23 @@ function App() {
           payments,
           setPayments, 
           studentPaying,
-          setStudentPaying
+          setStudentPaying,
+          currentPaymentIndex, 
+          setCurrentPaymentIndex
         }}
       >
         
         <div className='tools'>
-          <div title='Settings'>⚙</div>
-          <div title='Theme'>🎨<input type='color' onChange={(e)=>{setColorTheme(e.target.value)}} /></div>
+          <div title='Settings' onClick={()=>{ sMD==='none' ? sSMD('initial'): sSMD('none') }}>⚙</div>
           <div title='LogOut Session'>📴</div>
         </div>
+       
+        <div className="settingsModal" style={{display: sMD}}>
+        <div title='Theme'>🎨: <input type='color' onChange={(e)=>{setColorTheme(e.target.value)}} /></div>
+        Change Password
+        Password: <input />
+        </div>
+
         <div className='face'>
           <div className='sidebarsection'>
             <SideBar />

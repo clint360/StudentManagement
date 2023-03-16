@@ -7,10 +7,12 @@ import './Payments.css'
 import { parse } from '../../functions';
 import { useEffect } from 'react';
 import { ExportToExcel } from '../../Components/ExportToExcel';
+import PrintPayment from './PrintPayment';
 
 function Payments() {
- const { currency, payments } = useContext(MainContext)
+ const { currency, payments, setCurrentPaymentIndex, currentPaymentIndex } = useContext(MainContext)
  const [ nPVS, sNPVS ] = useState('none');
+ const [ vPVS, sVPVS ] = useState('none');
  const [ querriedPayments, setQuerriedPayments ] = useState([])
 
  useEffect(()=>{
@@ -32,6 +34,9 @@ function Payments() {
   return (
     <div>
      <div className='newentrydiv' style={{display: nPVS}}><NewPayment close={()=> sNPVS('none')}/></div> 
+     {currentPaymentIndex !== null ? (
+     <div className='newentrydiv' style={{display: vPVS}}><PrintPayment close={()=> sVPVS('none')} /></div>
+     ) : ''}
     <div><h1>Payments</h1></div>
     <section className='toolbar'>
     <div>List of Payments</div>
@@ -49,7 +54,7 @@ function Payments() {
           <div className='actionsss'>Action</div>
           </div>
           <div className='table'>
-         { querriedPayments.map((payment)=>{return (
+         { querriedPayments.map((payment, index)=>{return (
            <div className='studenttablerow' key={payment.payno}>
            <div className='payno'>{payment.payno}</div>
            <div className='date'>{payment.date}</div>
@@ -58,7 +63,7 @@ function Payments() {
            <div className='amounts'>{parse.format(payment.amount)}</div>
            <div className='balancee'>{parse.format(payment.balance)}</div>
            <div className='actionsss action'>
-        <button>Print</button>
+        <button  onClick={()=>{sVPVS('initial'); setCurrentPaymentIndex(index); console.log(currentPaymentIndex)}}>Print</button>
            </div>
            </div>
          )})}

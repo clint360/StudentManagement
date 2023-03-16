@@ -49,6 +49,7 @@ const savePayment = (e) => {
   e.preventDefault();
 
   const date = new Date();
+  const time = date.toLocaleTimeString('en-US');
   
   const y = date.getFullYear();
   let m = date.getMonth() + 1;
@@ -69,6 +70,7 @@ const savePayment = (e) => {
  const payment = {
     payno: payNum(studentPayingAdno),
     date: dateOTD,
+    time: `${time}`,
     studentName: students[studentPaying].name,
     adno: students[studentPaying].adno,
     studentClass: students[studentPaying].class,
