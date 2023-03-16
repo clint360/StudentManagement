@@ -9,6 +9,7 @@ import Select from 'react-select'
 import { ExportToExcel } from '../../Components/ExportToExcel';
 import ReactToPrint, { useReactToPrint } from 'react-to-print';
 import { useRef } from 'react';
+import { parse } from '../../functions';
 
 function Students() {
   const { students, setStudents, classes, currency, setCurrentStudentIndex } = useContext(MainContext);
@@ -95,14 +96,6 @@ function onSearch(e) {
 
   return (
     <div className='students'>
-      <ReactToPrint
-          trigger={() => {
-            // NOTE: could just as easily return <SomeComponent />. Do NOT pass an `onClick` prop
-            // to the root node of the returned component as it will be overwritten.
-            return <a href="#">Print this out!</a>;
-          }}
-          content={() => studentInfoRef.current}
-        />
       <div style={{display: newStudentViewState}} className='newentrydiv'><NewStudent close={()=>{setNewStudentViewState('none')}} /></div>
       <div style={{display: editStudentViewState}}  className='newentrydiv'><EditStudent close={()=>{setEditStudentViewState('none')}} /></div>
       <div style={{display: viewStudentViewState}}  className='newentrydiv'><ViewStudent close={()=>{setViewStudentViewState('none')}} print={handlePrint} ref={studentInfoRef} /></div>
@@ -134,9 +127,9 @@ function onSearch(e) {
         <div className='name'>{item.name}</div>
         <div className='sex'>{item.sex}</div>
         <div className='classs'>{item.class}</div>
-        <div className='payable'>{item.payableFee}</div>
-        <div className='paid'>{item.paidFee}</div>
-        <div className='bal'>{(item.payableFee - item.paidFee)}</div>
+        <div className='payable'>{parse.format(item.payableFee)}</div>
+        <div className='paid'>{parse.format(item.paidFee)}</div>
+        <div className='bal'>{parse.format((item.payableFee - item.paidFee))}</div>
         <div className='actions action'>
         <button onClick={()=>{setCurrentStudentIndex(
           querriedStudents.findIndex((obj)=>obj.name === item.name)
@@ -146,6 +139,9 @@ function onSearch(e) {
         </div>
         </div>
       )}) }
+       <div className='studenttablerow '>
+         <div className='lastrow'> Number Of Students: {querriedStudents.length} </div>
+         </div>
       </div>
       </section>
       <section className='exportexcel'> 

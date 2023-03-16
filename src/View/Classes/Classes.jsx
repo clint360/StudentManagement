@@ -7,6 +7,7 @@ import EditClass from './EditClass';
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { parse } from '../../functions';
 
 function Classes() {
   const { classes, setClasses, currency, setCCI } = useContext(MainContext)
@@ -50,7 +51,7 @@ function Classes() {
       <div className='classtableentry' key={item.name}>
       <div className='no'>{index + 1}</div>
       <div className='class'>{item.name}</div>
-      <div className='totalfee'>{ calcTotalAmount(index)}</div>
+      <div className='totalfee'>{ parse.format( calcTotalAmount(index))}</div>
       <div className='action'>
         <button onClick={()=>{ setCCI(classes.indexOf(item)); console.log(index);  setEditEntryViewState('initial')}}>Edit</button>
         <button onClick={()=>{deleted(index); deleteClass(index)}}>Delete</button>
