@@ -1,13 +1,13 @@
 export const paymentTemplate = 
   {
-    payno: "", 
+    payno: '', 
     date: ''  , 
     time: '',    
-    studentName: "",
+    studentName: '',
     adno: 0,
-    studentClass: "",
+    studentClass: '',
     classFees: [''],
     amount: 0,
     balance: 0,
-    remark: 'Paid'
+    remark: ''
   }

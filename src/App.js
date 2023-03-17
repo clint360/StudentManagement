@@ -11,7 +11,7 @@ import Reports from "./View/PaymentReports/Reports";
 
 
 function App() {
-  const [currency, setCurrency] = useState("XAF");
+  const [currency, setCurrency] = useState("FCFA");
   const [CCI, setCCI] = useState(null);
   const [classes, setClasses] = useState([
     {
@@ -109,6 +109,9 @@ function App() {
        
         <div className="settingsModal" style={{display: sMD}}>
         <div title='Theme'>🎨: <input type='color' onChange={(e)=>{setColorTheme(e.target.value)}} /></div>
+        CURRENCY: <input defaultValue={currency} onChange={(e)=>{setCurrency((e.target.value).toUpperCase())}}/>
+        
+        <br />
         Change Password
         Password: <input />
         </div>

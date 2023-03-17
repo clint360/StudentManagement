@@ -21,17 +21,19 @@ const ComponentToPrint = forwardRef(( props, ref ) => {
     <div className='viewpaymentmain'>
       <div className="viewpaymentpage"  >
         <div ref={ref}>
-        <img style={{width: '300px'}} src={''} alt={payment.date} />
-      <br />
-       Name: {payment.studentName}
-       <br />
-       Date: {payment.date}
-       <br />
-       Time: {payment.time}
-       <br />
-       Amount: {payment.amount}
-      </div>  
-      <br />
+      <div className="letterhead">
+        <img src='' />
+      </div> 
+      <div className="writing">
+        <div className="schooldetails">
+          <h3>Masters Bilingual College</h3>
+          <h5>Y'de Mballa 2, +237677485871</h5>
+        </div>
+        <div className="recieptheader">
+          
+        </div>
+      </div>
+      </div>
       </div> 
     </div>
   ) 
