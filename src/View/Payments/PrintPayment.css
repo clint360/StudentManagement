@@ -12,10 +12,76 @@
 
 .letterhead {
   width: 100%;
-  height: 125px;  
+  height: 180px;  
 }
 
 .letterhead img {
     width: 100%;
     height: 100%;
+}
+
+.writing .recieptheader {
+    padding: 10px 0;
+}
+
+.writing .recieptheader h1{
+    text-align: center;
+    font-size: 25px;
+    margin: 0;
+    padding: 0;
+}
+
+.writing .studentinfo {
+    padding: 0px 10px 10px 10px;
+}
+
+.boxofdetails {
+  width: 95%;
+  min-height: 200px;
+  margin: auto;
+  border: 1px solid black;
+  display: flex;
+}
+
+.boxofdetails  .feesdiv{
+ width: 67%;  
+ border-right: 1px solid black;
+}
+
+.boxofdetails  .feesdiv .feesbox {
+    display: flex;
+}
+
+.boxofdetails  .feesdiv .feesbox .left {
+    border-right: 1px solid black ;
+    flex-basis: 50%;
+}
+
+.boxofdetails  .feesdiv .feesbox .right {
+    flex-basis: 50%;
+}
+
+.boxofdetails  .feesdiv .totalbox {
+    border-top: 1px solid black;
+    display: flex;
+    justify-content: space-between;
+}
+
+.head {
+    border-bottom: 1px solid black;
+
+}
+
+.authbox {
+  width: 95%;
+  margin: 10px auto;
+  border: 1px solid rgb(75, 75, 75);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.authbox .a {
+    flex-basis: 45%;
+    padding: 10px 10px;
 }

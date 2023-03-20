@@ -7,7 +7,7 @@ import { paymentTemplate } from '../../templates';
 
 const ComponentToPrint = forwardRef(( props, ref ) => {
 
-  const {payments, currentPaymentIndex } = useContext(MainContext);
+  const {currency, payments, currentPaymentIndex } = useContext(MainContext);
   const [ payment, setPayment ] = useState(paymentTemplate)
    
   useEffect(()=>{
@@ -25,12 +25,58 @@ const ComponentToPrint = forwardRef(( props, ref ) => {
         <img src='' />
       </div> 
       <div className="writing">
-        <div className="schooldetails">
-          <h3>Masters Bilingual College</h3>
-          <h5>Y'de Mballa 2, +237677485871</h5>
-        </div>
         <div className="recieptheader">
-          
+          <h1>PAYMENT RECIEPT</h1>
+        </div>
+        <div className="studentinfo">
+          Name of Student: <b>{payment.studentName}</b> <br />
+          Class: <b>{payment.studentClass}</b><br />
+          Admission Number: <b> {payment.adno}</b><br />
+          Payment Number: <b> {payment.payno}</b><br />
+        </div>
+        <div className="boxofdetails">
+          <div className="feesdiv">
+            <div style={{height: '90%'}}>
+          <div className="feesbox">
+          <div className='left head'>Fee</div>
+          <div className='right head'>Amount</div>
+          </div>
+          { payment.classFees.map((fee)=> {
+            return (<div className="feesbox">
+            <div className='left'>{fee.type}</div>
+            <div className='right'>{fee.val}</div>
+            </div>)
+          })
+          }
+          </div>
+
+          <div className="totalbox">
+            <div>Total</div>
+            <div><b>200000{currency}</b></div>
+          </div> 
+          </div>
+          <div className="others">
+            Amount Paid: <br />
+            <span className="amtpaid">Amount paid</span><br />
+            Balance: <br />
+            <span className="amtpaid">Amount paid</span><br />
+            Remarks <br />
+            <span className="amtpaid">Amount paid</span><br />
+          </div>
+        </div>
+        <div className="authbox">
+          <div className="paidnon a">
+          Paid On: <b>{payment.date}</b>
+          </div>
+          <div className="paidby a">
+          At: <b>{payment.time}</b>
+          </div>
+          <div className="payerssign a">
+          Payer's Sign: ____________
+          </div>
+          <div className="recieverssign a">
+          Reciever's Sign: __________
+          </div>
         </div>
       </div>
       </div>
