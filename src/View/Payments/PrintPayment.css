@@ -38,6 +38,7 @@
 .boxofdetails {
   width: 95%;
   min-height: 200px;
+  height: auto;
   margin: auto;
   border: 1px solid black;
   display: flex;
@@ -55,16 +56,19 @@
 .boxofdetails  .feesdiv .feesbox .left {
     border-right: 1px solid black ;
     flex-basis: 50%;
+    padding: 2px 5px;
 }
 
 .boxofdetails  .feesdiv .feesbox .right {
     flex-basis: 50%;
+    padding: 2px 5px;
 }
 
 .boxofdetails  .feesdiv .totalbox {
     border-top: 1px solid black;
     display: flex;
     justify-content: space-between;
+    padding: 0px 5px;
 }
 
 .head {
