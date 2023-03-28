@@ -38,7 +38,7 @@ function NewPayment({close}) {
   console.log(studentPaying);
   setOutstandingBalance(students[studentPaying].balance)
 }
- },[randChange, setStudentPaying, studentPaying, studentPayingAdno, students])
+ },[randChange, setStudentPaying, studentPaying, studentPayingAdno, students, payments])
 
 
  function payNum(adno) {
@@ -113,7 +113,7 @@ const savePayment = (e) => {
       <input readOnly value={ outstandingBalance ? `${outstandingBalance} ${currency}`: '' } style={{color: 'red'}}/>
       <br />
       <legend>Amount:</legend>
-      <input type='number' name='amt' ref={amountRef} max={outstandingBalance} required/>
+      <input type='number' name='amt' ref={amountRef} min={100} max={outstandingBalance} required/>
       <br />
       <legend>Remarks:</legend>
       <input type="text" ref={remarkRef} />
