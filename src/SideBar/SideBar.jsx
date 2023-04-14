@@ -31,6 +31,7 @@ function SideBar() {
      <Link to='/students'><li><IoPeople />  Students</li></Link>
      <Link to='/payments'><li><FaReceipt /> Payments</li></Link>
      <Link to='/reports'><li><HiOutlineDocumentReport/> Payment Reports</li></Link>
+     <li><div>🏬</div>School Inventory</li>
       </ul>
     </div>
     </div>
