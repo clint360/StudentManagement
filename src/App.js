@@ -8,6 +8,7 @@ import { useState } from "react";
 import Students from "./View/Students/Students";
 import Payments from "./View/Payments/Payments";
 import Reports from "./View/PaymentReports/Reports";
+import SchoolInventory from "./View/SchoolInventory/SchoolInventory";
 
 
 function App() {
@@ -128,6 +129,7 @@ function App() {
               <Route path='/students' element={<Students />} />
               <Route path='/payments' element={<Payments />} />
               <Route path='/reports' element={<Reports />} />
+              <Route path='/inventory' element={<SchoolInventory />} />
             </Routes>
           </div>
         </div>

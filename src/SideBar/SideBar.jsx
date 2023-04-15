@@ -21,7 +21,7 @@ function SideBar() {
         <img src={logo} alt=''/>
       </div>
       <div className='schoolnamediv'>
-        <h2>Masters Bingual College</h2>
+        <h2>Name of School</h2>
       </div>
     </div>
     <div className='navigation'>
@@ -31,7 +31,7 @@ function SideBar() {
      <Link to='/students'><li><IoPeople />  Students</li></Link>
      <Link to='/payments'><li><FaReceipt /> Payments</li></Link>
      <Link to='/reports'><li><HiOutlineDocumentReport/> Payment Reports</li></Link>
-     <li><div>🏬</div>School Inventory</li>
+     <Link to='/inventory'><li><div>🏬</div>School Inventory</li></Link>
       </ul>
     </div>
     </div>
