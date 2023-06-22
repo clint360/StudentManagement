@@ -1,0 +1,64 @@
+.statCard {
+    height: 100px;
+    max-width: 375px;
+    width: 20%;
+    border-radius: 10px;
+    display: flex;
+    background: rgb(217, 227, 153);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    transition: all 0.3s;
+}
+
+.statCard:hover {
+    background: rgb(213, 213, 255);
+}
+
+
+.statCard .iconsection {
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 45px;
+    color: rgb(39, 115, 197);
+}
+
+.statCard .actualinfo {
+    width: 65%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+    padding-left: 10px;
+}
+
+.statCard .actualinfo h2 {
+    margin: 0;
+    font-size: 25px;
+}
+
+.statCard .actualinfo p{
+    margin: 0;
+    font-size: 18px;
+}
+
+.statCard .options {
+    width: 10%;
+    font-size: 30px;
+    text-align: end;
+    padding-top: 7px;
+    padding-left: 10px;
+    height: 35px;
+    transition: all 0.3s;
+    color: rgb(166, 97, 97);
+}
+
+.statCard .options a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.statCard .options:hover {
+    color: blue;
+    transform: translateX(5px);
+}
