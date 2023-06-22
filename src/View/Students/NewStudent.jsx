@@ -89,6 +89,7 @@ function NewStudent({close}) {
   }
 
   return (
+    <div className="mainContainer">
     <div className='newstudent'>
       <form onSubmit={addStudent}>
          <div className='opner'>New Student Information Entry</div>
@@ -140,6 +141,7 @@ function NewStudent({close}) {
             Cancel
           </button>
      </form>
+    </div>
     </div>
   )
 }

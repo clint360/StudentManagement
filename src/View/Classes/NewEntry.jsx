@@ -1,6 +1,8 @@
 import React, { useState, useRef, useEffect, useContext } from 'react';
 import './NewEntry.css';
 import { MainContext } from '../../Hooks/Context';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function NewEntry({close}) {
   const classRef = useRef(null);
@@ -9,6 +11,8 @@ function NewEntry({close}) {
   const [feetypes, setFeetypes] = useState([]);
   const { currency, setClasses } = useContext(MainContext);
   const [ total, setTotal ] = useState(0);
+  const created = (index) => toast(`✅ ${classRef.current.value} Created`);
+
 
   function totalSetter(value) {
     setTotal(value);
@@ -36,10 +40,14 @@ function NewEntry({close}) {
     }
     setClasses((prev)=>[...prev, newClass])
     setFeetypes([]);
+    created();
     classRef.current.value = null;
   }
 
   function onAdd () {
+    if(!feetypeRef.current.value || !amountRef.current.value) {
+
+    } else {
     const newFee = {
       type: feetypeRef.current.value,
       val: +amountRef.current.value
@@ -48,8 +56,10 @@ function NewEntry({close}) {
     feetypeRef.current.value = null;
     amountRef.current.value = null
   }
+  }
 
   return (
+    <div className="mainContainer">
     <div className='newentry'>
       <div className='opner'>New Class and Fees Entry</div>
       <form onSubmit={saveClass}>
@@ -99,6 +109,7 @@ function NewEntry({close}) {
        <button onClick={close}>Close</button>
       </section>
       </form>
+    </div>
     </div>
   )
 }

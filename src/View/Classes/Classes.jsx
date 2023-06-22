@@ -4,7 +4,6 @@ import { MainContext } from '../../Hooks/Context';
 import NewEntry from './NewEntry';
 import { useState } from 'react';
 import EditClass from './EditClass';
-
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { parse } from '../../functions';

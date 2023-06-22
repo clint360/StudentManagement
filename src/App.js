@@ -14,71 +14,14 @@ import SchoolInventory from "./View/SchoolInventory/SchoolInventory";
 function App() {
   const [currency, setCurrency] = useState("FCFA");
   const [CCI, setCCI] = useState(null);
-  const [classes, setClasses] = useState([
-    {
-      name: "Form 1",
-      fees: [
-        {
-          type: "Tuition",
-          val: 200000,
-        },
-      ],
-    },
-    {
-      name: "Form 2",
-      fees: [
-        {
-          type: "Tuition",
-          val: 300000,
-        },
-        {
-          type: "Books",
-          val: 100000,
-        },
-      ],
-    },
-    {
-      name: "Form 3",
-      fees: [
-        {
-          type: "Tuition",
-          val: 400000,
-        },
-        {
-          type: "Books",
-          val: 140000,
-        },
-      ],
-    },
-  
- ]);
-
-  const [students, setStudents] = useState([
-    {
-      name: "Chia Clint Animbom",
-      adno: "F101",
-      sex: "M",
-      class: "Form 2",
-      profilePicture: "",
-      guardianName: "Mr Ferdinand",
-      phone: "677806233",
-      email: "clintani360@gmail.com",
-      DOB: "28-07-2005",
-      POB: "Mbingo",
-      Address: "Obili",
-      payableFee: 50000,
-      paidFee: 0,
-      balance: 50000,
-    },
-  ]);
-  const [ payments, setPayments ] = useState([
-
-  ])
-  const [currentStudentIndex, setCurrentStudentIndex] = useState(0);
+  const [classes, setClasses] = useState([]);
+  const [students, setStudents] = useState([]);
+  const [payments, setPayments] = useState([])
+  const [currentStudentIndex, setCurrentStudentIndex] = useState(null);
   const [currentPaymentIndex, setCurrentPaymentIndex] = useState(null);
-  const [ studentPaying, setStudentPaying ] = useState(0);
+  const [studentPaying, setStudentPaying] = useState(0);
   const [colorTheme, setColorTheme] = useState('#000');
-  let [ sMD, sSMD ] = useState('none')
+  let [sMD, sSMD] = useState('none')
 
   return (
     <Router>
@@ -95,33 +38,33 @@ function App() {
           setCurrentStudentIndex,
           colorTheme,
           payments,
-          setPayments, 
+          setPayments,
           studentPaying,
           setStudentPaying,
-          currentPaymentIndex, 
+          currentPaymentIndex,
           setCurrentPaymentIndex
         }}
       >
-        
+
         <div className='tools'>
-          <div title='Settings' onClick={()=>{ sMD==='none' ? sSMD('initial'): sSMD('none') }}>⚙</div>
+          <div title='Settings' onClick={() => { sMD === 'none' ? sSMD('initial') : sSMD('none') }}>⚙</div>
           <div title='LogOut Session'>📴</div>
         </div>
-       
-        <div className="settingsModal" style={{display: sMD}}>
-        <div title='Theme'>🎨: <input type='color' onChange={(e)=>{setColorTheme(e.target.value)}} /></div>
-        CURRENCY: <input defaultValue={currency} onChange={(e)=>{setCurrency((e.target.value).toUpperCase())}}/>
-        
-        <br />
-        Change Password
-        Password: <input />
+
+        <div className="settingsModal" style={{ display: sMD }}>
+          <div title='Theme'>🎨: <input type='color' onChange={(e) => { setColorTheme(e.target.value) }} /></div>
+          CURRENCY: <input defaultValue={currency} onChange={(e) => { setCurrency((e.target.value).toUpperCase()) }} />
+
+          <br />
+          Change Password
+          Password: <input />
         </div>
 
         <div className='face'>
           <div className='sidebarsection'>
             <SideBar />
           </div>
-          
+
           <div className='viewsection'>
             <Routes>
               <Route path='/' element={<Dashboard />} />

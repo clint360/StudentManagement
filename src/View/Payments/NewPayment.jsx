@@ -86,6 +86,7 @@ const savePayment = (e) => {
 
 
   return (
+    <div className="mainContainer">
     <div className='newpayment'>
       <div className='opner'>New Payment</div>
       <form onSubmit={savePayment}>
@@ -121,6 +122,7 @@ const savePayment = (e) => {
       <button className='save' type='submit'>SAVE</button>
       <button className='cancel' type='button' onClick={close}>CANCEL</button>
       </form>
+      </div>
       </div>
   )
 }

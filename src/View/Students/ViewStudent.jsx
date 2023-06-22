@@ -6,7 +6,9 @@ import ReactToPrint from 'react-to-print';
 const ComponentToPrint = forwardRef(( props, ref ) => {
 
   const {students, currentStudentIndex } = useContext(MainContext);
-  let student = students[currentStudentIndex]
+  let student = currentStudentIndex? students[currentStudentIndex] : null;
+
+  if (student)
   return (
     <div className='viewstudentmain'>
       <div className="viewstudentpage"  ref={ref}>
@@ -20,6 +22,7 @@ const ComponentToPrint = forwardRef(( props, ref ) => {
        
     </div>
   )
+  return <div />
 });
 
 

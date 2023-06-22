@@ -12,7 +12,7 @@ function EditClass({close}) {
   const feetypeRef = useRef(null);
   const amountRef = useRef(null);
   
-  const savedToast = () => toast(`Saved`)
+  const savedToast = () => toast(`✅ Saved`)
 
    useEffect(()=>{
     if(CCI !== null) {
@@ -51,6 +51,8 @@ function EditClass({close}) {
   }
 
   function onAdd () {
+    if(!feetypeRef.current.value || !amountRef.current.value) {
+    } else {
     const newFee = {
       type: feetypeRef.current.value,
       val: +amountRef.current.value
@@ -59,8 +61,8 @@ function EditClass({close}) {
     feetypeRef.current.value = null;
     amountRef.current.value = null
   }
-
-  return (
+}
+    <div className="mainContainer">
     <div className='newentry'>
       <div className='opner'>Edit Class and Fees Entry</div>
       <form onSubmit={saveClass}>
@@ -111,7 +113,7 @@ function EditClass({close}) {
       </section>
       </form>
     </div>
-  )
+    </div>
 }
 
 export default EditClass

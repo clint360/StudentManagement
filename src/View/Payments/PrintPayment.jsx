@@ -5,7 +5,7 @@ import ReactToPrint from 'react-to-print';
 import { useEffect } from 'react';
 import { paymentTemplate } from '../../templates';
 import { parse } from '../../functions';
-import letterhead from '../../Assets/ls.JPG'
+import letterhead from '../../Assets/ls.JPG';
 
 const ComponentToPrint = forwardRef(( props, ref ) => {
 
