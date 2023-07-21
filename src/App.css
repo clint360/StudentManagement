@@ -58,8 +58,8 @@ body {
   padding: 10px;
 }
 
-@media screen and (max-width: 800px) {
-  .face {
-   zoom: 40%;
+@media screen and (max-width: 1600px) {
+  body {
+   zoom: 80%;
   }
 }
