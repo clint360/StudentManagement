@@ -16,7 +16,7 @@ function EditClass({close}) {
 
    useEffect(()=>{
     if(CCI !== null) {
-    console.log(classes[CCI].name)
+    console.log(classes[CCI]?.name)
     classRef.current.value = classes[CCI].name
     setFeetypes(classes[CCI].fees) 
     }
@@ -62,6 +62,8 @@ function EditClass({close}) {
     amountRef.current.value = null
   }
 }
+  return (
+    classes[CCI]? (
     <div className="mainContainer">
     <div className='newentry'>
       <div className='opner'>Edit Class and Fees Entry</div>
@@ -91,7 +93,7 @@ function EditClass({close}) {
         Delete
         </div> 
         </div>
-        {feetypes.map((item, index)=>{return(
+        {feetypes?.map((item, index)=>{return(
         <div className='viewrow1' key={index}>
         <div className="feetype">
         {item.type}
@@ -114,6 +116,8 @@ function EditClass({close}) {
       </form>
     </div>
     </div>
+    ) : <div />
+  )
 }
 
 export default EditClass

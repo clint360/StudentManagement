@@ -136,8 +136,7 @@ function onSearch(e) {
         <button onClick={()=>{setCurrentStudentIndex(
           querriedStudents.findIndex((obj)=>obj.name === item.name)
         ); setEditStudentViewState('initial')}}>Edit</button>
-        <button>Delete</button>
-        <button onClick={()=>{setCurrentStudentIndex(index); setViewStudentViewState('initial')}}>👁</button>
+       <div className='eye'><button onClick={()=>{setCurrentStudentIndex(index); setViewStudentViewState('initial')}}>View</button></div> 
         </div>
         </div>
       )}) }

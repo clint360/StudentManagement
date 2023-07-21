@@ -1,9 +1,10 @@
 body {
-  background: rgba(225, 225, 225, 0.974);
+  background: rgba(202, 202, 202, 0.974);
 }
 
 .face {
   display: flex;
+  background: rgba(239, 239, 239, 0.974);
 }
 
 .tools {
@@ -34,6 +35,7 @@ body {
 
 .sidebarsection {
   position: fixed;
+  height: 100vh;
 }
 
 .viewsection {
@@ -41,7 +43,7 @@ body {
   background: rgba(239, 239, 239, 0.974);
   width: 100%;
   margin-left: 250px;
-  min-height: 87.7vh;
+  min-height: 100vh;
 }
 
 .settingsModal {
@@ -56,3 +58,8 @@ body {
   padding: 10px;
 }
 
+@media screen and (max-width: 800px) {
+  .face {
+   zoom: 40%;
+  }
+}

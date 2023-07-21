@@ -22,33 +22,28 @@ function Dashboard() {
   const { students, currency, classes, payments } = useContext(MainContext);
   const [expectedAmount, setExpectedAmount] = useState(0);
   const [paidAmount, setPaidAmount] = useState(0);
-
+  const gddata = [
+    ["Gender", "Population"], 
+    ["Girls",  (students.filter((obj) => obj.sex === "F")).length],
+    ["Boys", (students.filter((obj) => obj.sex === "M")).length]
+    ]
   
+  const gsdata = [
+      ["Class", "Population"],
+      ...classes.map((c)=> {
+        return [`${c.name}`, students.filter((obj) => obj.class === `${c.name}`).length ]
+      })
+    ]
 
   useEffect(() => {
-    setExpectedAmount(0)
+    console.log(gsdata)
     setExpectedAmount(0)
     for (let i = 0; i < students.length; i++) {
       setExpectedAmount((prev) => prev + students[i].payableFee)
       setPaidAmount((prev) => prev + students[i].paidFee)
     }
-  }, [students])
-    
-  const gddata = [
-    ["Gender", "Population"],
-    ["Girls", 300],
-    ["Boys", 200],
-  ]
+  }, [students]) 
 
-  const gsdata = [
-    ["Class", "Population"],
-    ["Form 1", 300],
-    ["Form 2", 200],
-    ["Form 3", 300],
-    ["Form 4", 200],
-    ["Form 5", 300],
-    ["Lower Sixth", 200],
-  ]
 
     const gdoptions = {
     title: "Gender Distributions",
@@ -67,10 +62,9 @@ function Dashboard() {
 
   const classesbarchartdata = [
     ["Year", "Girls", "Boys"],
-    ["Form 1", 30, 40],
-    ["Form 2", 50, 60],
-    ["Form 3", 70, 80],
-    ["Form 4", 40, 50],
+    ...classes.map((c)=> {
+      return [`${c.name}`, students.filter((obj) => obj.sex === `F`).length, students.filter((obj) => obj.sex === `M`).length ]
+    })
   ];
 
   const classesbarchartoptions = {
@@ -159,7 +153,7 @@ function Dashboard() {
           link={"payments"}
         />
         <StatCard
-          value={students.length !== 0 ? (students.length/classes.length).toFixed(3): 0}
+          value={students.length !== 0 ? (Math.floor(students.length/classes.length)): 0}
           attribute={"AVERAGE CLASS SIZE"}
           icon={<FaSchool />}
           bg="#fff"

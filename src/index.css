@@ -7,6 +7,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+* {
+  transition: all 0.2s ease;
+}
+
 button {
   cursor: pointer;
 }

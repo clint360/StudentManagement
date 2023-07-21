@@ -17,6 +17,7 @@ function Classes() {
 
   function deleteClass(index) {
     setClasses(classes.filter(item => item !== classes[index]));
+    setCCI(null);
    
   }
 

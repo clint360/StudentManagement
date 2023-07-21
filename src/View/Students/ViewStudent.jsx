@@ -8,21 +8,19 @@ const ComponentToPrint = forwardRef(( props, ref ) => {
   const {students, currentStudentIndex } = useContext(MainContext);
   let student = currentStudentIndex? students[currentStudentIndex] : null;
 
-  if (student)
   return (
     <div className='viewstudentmain'>
       <div className="viewstudentpage"  ref={ref}>
-        <img style={{width: '300px'}} src={student.profilePicture} alt={student.name} />
+        <img style={{width: '300px'}} src={student?.profilePicture} alt={student?.name} />
       <br />
-       Name: {student.name}
+       Name: {student?.name}
        <br />
-       Class: {student.class}
+       Class: {student?.class}
       </div>  
       <br />
        
     </div>
   )
-  return <div />
 });
 
 

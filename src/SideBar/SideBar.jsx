@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import './SideBar.css';
 import logo from '../Assets/school.png'
 import { Link } from 'react-router-dom';
