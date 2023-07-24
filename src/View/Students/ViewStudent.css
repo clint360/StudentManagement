@@ -33,3 +33,9 @@
   z-index: 99999;
 }
 
+
+.photoarea2 {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 10px;
+}

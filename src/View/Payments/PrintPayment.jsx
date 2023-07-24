@@ -5,7 +5,7 @@ import ReactToPrint from 'react-to-print';
 import { useEffect } from 'react';
 import { paymentTemplate } from '../../templates';
 import { parse } from '../../functions';
-import letterhead from '../../Assets/ls.JPG';
+import letterhead from '../../Assets/mbcletterhead.png';
 
 const ComponentToPrint = forwardRef(( props, ref ) => {
 
@@ -24,7 +24,7 @@ const ComponentToPrint = forwardRef(( props, ref ) => {
     if(payments.length >= 0) {
     setPayment(payments[currentPaymentIndex])
   }
-},[currentPaymentIndex])
+},[currentPaymentIndex, payment.classFees, payments])
 
 
   return (

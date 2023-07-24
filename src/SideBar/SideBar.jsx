@@ -1,6 +1,6 @@
 import React from 'react'
 import './SideBar.css';
-import logo from '../Assets/school.png'
+import logo from '../Assets/mbclogo.png'
 import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { MainContext } from '../Hooks/Context';
@@ -21,7 +21,7 @@ function SideBar() {
         <img src={logo} alt=''/>
       </div>
       <div className='schoolnamediv'>
-        <h2>Name of School</h2>
+        <h2>Masters Bilingual College</h2>
       </div>
     </div>
     <div className='navigation'>

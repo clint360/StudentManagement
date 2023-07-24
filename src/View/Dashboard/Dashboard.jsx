@@ -63,7 +63,9 @@ function Dashboard() {
   const classesbarchartdata = [
     ["Year", "Girls", "Boys"],
     ...classes.map((c)=> {
-      return [`${c.name}`, students.filter((obj) => obj.sex === `F`).length, students.filter((obj) => obj.sex === `M`).length ]
+      return [`${c.name}`, 
+       students.filter((obj) => obj.sex === `F` && obj.class === `${c.name}`).length,
+       students.filter((obj) => obj.sex === `M` && obj.class === `${c.name}`).length ]
     })
   ];
 
