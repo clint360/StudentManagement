@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useContext, useEffect, useState } from 'react'
 import { MainContext } from '../../Hooks/Context'
 import './Dashboard.css'
@@ -10,6 +11,7 @@ import { parse } from '../../functions';
 import { Chart } from "react-google-charts";
 import { FaSchool } from "@react-icons/all-files/fa/FaSchool";
 import { FaClock } from "@react-icons/all-files/fa/FaClock";
+import Clock from './Clock';
 
 export function m(n, d) {
   let x = ('' + n).length, p = Math.pow;
@@ -42,7 +44,7 @@ function Dashboard() {
       setExpectedAmount((prev) => prev + students[i].payableFee)
       setPaidAmount((prev) => prev + students[i].paidFee)
     }
-  }, [students]) 
+  }, [ students]) 
 
 
     const gdoptions = {
@@ -162,8 +164,8 @@ function Dashboard() {
           link={"classes"}
         />
         <StatCard
-        value={9}
-        attribute={"MONTHS LEFT"}
+        value={<Clock />}
+        attribute={"TIME"}
         icon={<FaClock />}
         bg="#fff"
         link={"payments"}
